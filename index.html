@@ -1,57 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Name — Engineering Portfolio</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nolan Wong | Mechanical Engineering Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F1EBE0;--panel:#FAF6EE;--ink:#26231F;--mut:#6F6A60;--line:#DDD3C2;--steel:#2F6F99;--teal:#2A9D8F;--ease:cubic-bezier(.22,1,.36,1);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171C;--panel:#1B2027;--ink:#E8EAEE;--mut:#98A0AD;--line:#2B313B;--steel:#6FB1DA;--teal:#4CC3B3}}
+:root[data-theme="dark"]{--bg:#14171C;--panel:#1B2027;--ink:#E8EAEE;--mut:#98A0AD;--line:#2B313B;--steel:#6FB1DA;--teal:#4CC3B3}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));background:var(--bg)}
+html.lock{overflow:hidden}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Instrument Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;line-height:1.08;margin:0;letter-spacing:-.02em}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+#bar{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;height:2px;background:var(--steel);transform-origin:0 50%;transform:scaleX(0);z-index:30}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font:700 18px "Bricolage Grotesque",sans-serif;text-decoration:none}
+nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}nav li{display:flex;align-items:center}.tgl{font:500 14px "Instrument Sans",sans-serif;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer;transition:border-color .25s}.tgl:hover{border-color:var(--steel)}
+nav a.l{text-decoration:none;font-size:15px;color:var(--mut);position:relative;padding:4px 0;transition:color .25s}
+nav a.l::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--steel);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+nav a.l:hover,nav a.l[aria-current]{color:var(--ink)}
+nav a.l:hover::after,nav a.l[aria-current]::after{transform:scaleX(1)}
+section{padding:110px 0}
+#home{padding:72px 0 90px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+h1{font-size:clamp(46px,7.5vw,92px)}
+.sub{font-size:clamp(18px,2.2vw,22px);color:var(--mut);max-width:30em;margin:22px 0 32px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 24px;border-radius:999px;border:1px solid var(--ink);text-decoration:none;font-weight:500;font-size:15px;position:relative;overflow:hidden;isolation:isolate;transition:color .35s,transform .25s var(--ease)}
+.btn::before{content:"";position:absolute;inset:0;background:var(--ink);transform:translateY(101%);transition:transform .4s var(--ease);z-index:-1}
+.btn:hover{transform:translateY(-2px)}
+.btn:hover::before{transform:none}
+.btn.p{background:var(--ink);color:var(--bg)}
+.btn.p::before{background:var(--steel)}
+.btn.p:hover{color:#fff}
+.btn:not(.p):hover{color:var(--bg)}
+.me{width:100%;max-width:400px;justify-self:end}.ph{aspect-ratio:4/5;border-radius:14px;border:1px solid var(--line);background:linear-gradient(160deg,color-mix(in srgb,var(--steel) 24%,var(--panel)),var(--panel));display:grid;place-items:end start;padding:16px;color:var(--mut);font-size:14px}.me img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:14px;display:block}
+h2{font-size:clamp(32px,4.5vw,48px);margin-bottom:12px}
+.lead{color:var(--mut);max-width:34em;margin:0 0 36px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.filters button{font:500 14px "Instrument Sans",sans-serif;padding:8px 18px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.filters button:hover{border-color:var(--steel)}.filters button[data-t]:not([data-t="all"])::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;background:var(--dot)}.filters [data-t="solidworks"]{--dot:var(--steel)}.filters [data-t="matlab"]{--dot:var(--teal)}.filters [data-t="personal"]{--dot:#6B7A99}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .filters [data-t="personal"]{--dot:#9AA8C7}}:root[data-theme="dark"] .filters [data-t="personal"]{--dot:#9AA8C7}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:22px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .3s}
+[data-k]{--cat:var(--steel)}[data-k="matlab"]{--cat:var(--teal)}[data-k="personal"]{--cat:#6B7A99}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) [data-k="personal"]{--cat:#9AA8C7}}:root[data-theme="dark"] [data-k="personal"]{--cat:#9AA8C7}
+.card:hover{transform:translateY(-6px);border-color:var(--cat);box-shadow:0 18px 36px -18px color-mix(in srgb,var(--cat) 55%,transparent)}
+.th{aspect-ratio:16/10;position:relative;overflow:hidden;background:linear-gradient(135deg,color-mix(in srgb,var(--c) 30%,var(--panel)),var(--panel))}
+.th::before{content:"";position:absolute;inset:-6%;background:repeating-linear-gradient(0deg,var(--line) 0 1px,transparent 1px 28px),repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 28px);opacity:.7;transition:transform .7s var(--ease)}
+.card:hover .th::before{transform:scale(1.08)}
+.th span{position:absolute;left:14px;bottom:10px;font-size:13px;color:var(--mut)}
+.cb{padding:20px 22px 22px}
+.cb h3{font-size:21px;margin-bottom:8px}
+.cb p{margin:0 0 14px;color:var(--mut);font-size:15px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;list-style:none;margin:0 0 14px;padding:0}
+.tags li{font-size:13px;color:var(--cat);border:1px solid color-mix(in srgb,var(--cat) 40%,transparent);padding:2px 10px;border-radius:999px;transition:background .25s,color .25s}
+.card:hover .tags li{background:var(--cat);color:var(--bg)}
+.more{background:none;border:0;padding:0;font:500 15px "Instrument Sans",sans-serif;color:var(--ink);cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.more i{font-style:normal;display:inline-block;transform:translateX(-6px);opacity:0;transition:transform .35s var(--ease),opacity .3s}
+.card:hover .more i,.more:focus-visible i{transform:none;opacity:1}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+img.photo{width:100%;padding:0;border:0;display:block;object-fit:cover;object-position:center 20%}
+.bio p{color:var(--mut);margin:0 0 14px}
+.tl{position:relative;padding-left:28px;margin:0;list-style:none}
+.tline{position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--steel);transform-origin:top;border-radius:2px}
+.tl::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl li{position:relative;padding:0 0 26px}
+.tl li::before{content:"";position:absolute;left:-28px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--steel)}
+.tl b{display:block;font-weight:500}.tl span{color:var(--mut);font-size:15px}
+.about h3{font-size:22px;margin-bottom:20px}
+.ints{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:0 28px;margin:56px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.ints li{padding:20px 0;border-bottom:1px solid var(--line);transition:padding-left .4s var(--ease),border-color .3s}
+.ints li:hover{padding-left:14px;border-bottom-color:var(--teal)}
+.ints b{font:700 19px "Bricolage Grotesque",sans-serif;display:block}
+.ints span{color:var(--mut);font-size:15px;display:block;max-height:0;opacity:0;overflow:hidden;transition:max-height .4s var(--ease),opacity .3s}
+.ints li:hover span,.ints li:focus-within span{max-height:3em;opacity:1}
+@media (hover:none){.ints span{max-height:3em;opacity:1}.more i{opacity:1;transform:none}}
+#contact{border-top:1px solid var(--line)}
+.links{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+footer{padding:28px 0 40px;color:var(--mut);font-size:14px}
+:focus-visible{outline:2px solid var(--steel);outline-offset:3px}
+.anim .hi,.anim .rv{opacity:0}
+
+/* ===== Project detail view (full-screen, tinted by the tile color) ===== */
+#pd{--c:#3A7CA5;--tint:24%;
+ --b0:color-mix(in srgb,var(--c) var(--tint),#05080d);
+ --b2:color-mix(in srgb,var(--b0) 70%,#000);
+ --ln:color-mix(in srgb,var(--c) 38%,transparent);
+ --gl:color-mix(in srgb,var(--c) 20%,transparent);
+ --ac:color-mix(in srgb,var(--c) 50%,#fff);
+ --tx:#E9EEF4;--mu:#9DAABB;
+ position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px);border:0;border-radius:0;background:var(--b0);color:var(--tx);overflow:hidden}
+#pd[open]{display:grid;grid-template-columns:272px minmax(0,1fr) 352px;grid-template-rows:minmax(0,1fr) 152px;grid-template-areas:"side stage info" "side thumbs info"}
+#pd :focus-visible{outline-color:var(--ac)}
+#pd p{margin:0}
+.side{grid-area:side;display:flex;flex-direction:column;padding:24px 22px 0;border-right:1px solid var(--ln);background:var(--b2);overflow:auto;min-height:0}
+.back{display:flex;align-items:center;gap:10px;align-self:flex-start;padding:0;border:0;background:none;color:var(--mu);font:500 12px "Instrument Sans",sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:color .25s}
+.back:hover{color:var(--tx)}.back svg{transition:transform .3s var(--ease)}.back:hover svg{transform:translateX(-4px)}
+#pd h3{font-size:27px;margin:28px 0 10px}
+.meta{color:var(--ac);font-size:13px}
+.steps{list-style:none;margin:30px 0;padding:0;display:grid;gap:6px}
+.steps button{display:flex;align-items:center;gap:14px;width:100%;padding:9px 10px;border:0;border-radius:10px;background:none;color:var(--mu);font:500 15px "Instrument Sans",sans-serif;text-align:left;cursor:pointer;transition:background .25s,color .25s}
+.steps button:hover{color:var(--tx);background:color-mix(in srgb,var(--ac) 8%,transparent)}
+.steps .n,.proc .n{display:grid;place-items:center;flex:none;width:28px;height:28px;border-radius:50%;border:1px solid var(--ac);color:var(--ac);font-size:13px;transition:background .25s,color .25s}
+.steps [aria-current]{color:var(--tx);background:color-mix(in srgb,var(--ac) 12%,transparent)}
+.steps [aria-current] .n{background:var(--ac);color:var(--b0)}
+.lab{font:500 11px "Instrument Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);margin:0 0 14px}
+.lab.u{padding-bottom:10px;border-bottom:1px solid var(--ln)}
+.tools{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.tools li{display:flex;align-items:center;gap:12px;font-size:14px;color:#C8D2DE}
+.tools i{display:grid;place-items:center;width:24px;height:24px;border-radius:6px;border:1px solid var(--ln);color:var(--ac);font:700 12px "Bricolage Grotesque",sans-serif;font-style:normal}
+.jet{margin-top:auto;padding:28px 0 8px;width:100%;color:var(--ac);opacity:.35;flex:none}
+
+.stage{grid-area:stage;position:relative;overflow:hidden;min-height:0;background:radial-gradient(58% 52% at 50% 46%,color-mix(in srgb,var(--c) 34%,transparent),transparent 72%),repeating-linear-gradient(0deg,var(--gl) 0 1px,transparent 1px 38px),repeating-linear-gradient(90deg,var(--gl) 0 1px,transparent 1px 38px),var(--b0)}
+.pdhero{position:absolute;inset:9% 28% 11%}
+.hz{width:100%;height:100%;transition:transform .45s var(--ease)}
+.hz img{width:100%;height:100%;object-fit:contain;display:block}
+.ph3{width:100%;height:100%;border:1px dashed var(--ln);border-radius:16px;background:color-mix(in srgb,var(--ac) 4%,transparent);display:grid;place-content:center;gap:6px;text-align:center;padding:20px;color:var(--mu);font-size:13px}
+.ph3 b{color:var(--tx);font:700 20px "Bricolage Grotesque",sans-serif}
+.vname{position:absolute;left:22px;top:20px;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--mu)}
+.vname::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ac)}
+.co{position:absolute;transform:translateY(-100%);padding-bottom:7px;border-bottom:1px solid var(--ac);font-size:13px;line-height:1.4;color:var(--mu);transition:opacity .35s}
+.co .tx{max-width:180px}.co b{display:block;color:var(--ac);font-weight:500;font-size:14px;margin-bottom:2px}
+.co.R .tx{margin-left:auto;text-align:right}
+.co::after{content:"";position:absolute;bottom:-5px;width:9px;height:9px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 4px color-mix(in srgb,var(--ac) 25%,transparent)}
+.co.L::after{right:-4px}.co.R::after{left:-4px}
+.stage.nov .co{opacity:0;pointer-events:none}
+.zc{position:absolute;right:18px;bottom:16px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--mu)}
+.zc button{width:34px;height:34px;border-radius:8px;border:1px solid var(--ln);background:var(--b2);color:var(--tx);font-size:18px;cursor:pointer;transition:border-color .25s}
+.zc button:hover{border-color:var(--ac)}
+
+.thumbs{grid-area:thumbs;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;padding:16px 20px;border-top:1px solid var(--ln);background:var(--b2)}
+.tb{display:flex;flex-direction:column;min-width:0;padding:0;border:1px solid var(--ln);border-radius:10px;background:var(--b0);color:var(--tx);overflow:hidden;cursor:pointer;transition:border-color .3s,transform .35s var(--ease)}
+.tb:hover{transform:translateY(-3px);border-color:var(--ac)}
+.tb.on{border-color:var(--ac);box-shadow:0 0 0 1px var(--ac)}
+.tp{flex:1;background-color:var(--b0);background-image:repeating-linear-gradient(0deg,var(--gl) 0 1px,transparent 1px 14px),repeating-linear-gradient(90deg,var(--gl) 0 1px,transparent 1px 14px),radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--c) 40%,transparent),transparent 70%);background-size:auto,auto,auto;background-position:center}
+.tp[style]{background-size:cover}
+.tl2{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;font-size:13px;border-top:1px solid var(--ln)}
+.tl2 i{font-style:normal;color:var(--ac)}
+
+.info{grid-area:info;display:flex;flex-direction:column;padding:26px 26px 22px;border-left:1px solid var(--ln);background:var(--b2);overflow:auto;min-height:0}
+.info p{color:#C8D2DE;font-size:15px;line-height:1.55;margin-bottom:22px}
+.blk{display:grid;grid-template-columns:32px 1fr;gap:12px;margin-bottom:22px}
+.blk .ic{color:var(--ac);padding-top:1px}
+.blk h4{margin:0 0 4px;color:var(--ac);font:500 15px "Instrument Sans",sans-serif}
+.blk p{margin:0;font-size:14px;color:var(--mu)}
+.blk ul,.tkl{margin:0;padding-left:16px;color:var(--mu);font-size:14px;line-height:1.55}
+.tkl{font-size:15px;color:#C8D2DE;display:grid;gap:10px}
+.proc{list-style:none;margin:0 0 24px;padding:0}
+.proc li{position:relative;display:grid;grid-template-columns:30px 1fr;gap:14px;padding-bottom:20px}
+.proc li:not(:last-child)::after{content:"";position:absolute;left:14px;top:32px;bottom:2px;width:1px;background:var(--ln)}
+.proc .n{width:30px;height:30px}
+.proc b{font-weight:500;font-size:15px}
+.proc p{margin:2px 0 0;font-size:13.5px;color:var(--mu);line-height:1.5}
+.rep{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 16px;border:1px solid var(--ac);border-radius:10px;color:var(--ac);text-decoration:none;font-weight:500;font-size:14px;transition:background .3s,color .3s;flex:none}
+.rep:hover{background:var(--ac);color:var(--b0)}
+.rep span{display:flex;align-items:center;gap:10px}
+
+@media (max-width:900px){
+ #pd[open]{display:block;overflow:auto}
+ .side{border-right:0;border-bottom:1px solid var(--ln);padding-bottom:20px}
+ #pd h3{margin:20px 0 8px;font-size:24px}
+ .steps{display:flex;overflow-x:auto;margin:20px 0}.steps button{white-space:nowrap;width:auto}
+ .tools{display:flex;flex-wrap:wrap;gap:8px 18px}.jet{display:none}
+ .stage{height:min(62vh,520px)}.pdhero{inset:12% 8% 14%}
+ .thumbs{display:flex;overflow-x:auto}.tb{flex:none;width:170px;height:118px}
+ .info{border-left:0;border-top:1px solid var(--ln);overflow:visible}.rep{margin-top:8px}
+}
+@media (max-width:700px){.co{display:none}}
+@media (max-width:820px){.hero,.about{grid-template-columns:1fr}.me{max-width:320px;justify-self:start}nav ul{gap:12px}.tgl{padding:4px 10px;font-size:13px}section{padding:80px 0}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition-duration:.01ms!important;animation:none!important}}
+</style>
 </head>
 <body>
+<div id="bar"></div>
+<nav><div class="wrap"><a class="logo" href="#home">Nolan Wong</a>
+<ul><li><a class="l" href="#home">Home</a></li><li><a class="l" href="#about">About</a></li><li><a class="l" href="#projects">Projects</a></li><li><a class="l" href="#contact">Contact</a></li><li><button id="th" class="tgl" aria-label="Switch color theme">Light</button></li></ul></div></nav>
 
-  <nav class="nav">
-    <ul class="nav__list">
-      <li><a href="index.html" class="is-active">HOME</a></li>
-      <li class="nav__item--has-dropdown">
-        <a href="#" aria-haspopup="true">PROJECTS</a>
-        <ul class="nav__dropdown">
-          <li><a href="solidworks.html">SOLIDWORKS</a></li>
-          <li><a href="matlab.html">MATLAB</a></li>
-        </ul>
-      </li>
-      <li><a href="contact.html">CONTACT</a></li>
-    </ul>
-  </nav>
+<main>
+<section id="home"><div class="wrap">
+<div class="hero">
+<div>
+<h1 class="hi">Nolan Wong</h1>
+<p class="sub hi">Mechanical engineering student at UC Berkeley, building toward a career in aerospace.</p>
+<div class="btns hi"><a class="btn p" href="#projects">View projects</a><a class="btn" href="#contact">Get in touch</a></div>
+</div>
 
-  <main>
-    <header class="hero">
-      <h1 class="hero__name">Your Name</h1>
-      <p class="hero__role">Mechanical Design &amp; Simulation</p>
-    </header>
+</div>
 
-    <section class="about">
-      <h2>About Me</h2>
-      <p>
-        I'm a mechanical engineering student focused on product design and
-        analysis. My work moves between CAD and computation — modeling a
-        part in SolidWorks, then using MATLAB to check whether it actually
-        holds up: stress, motion, thermal behavior, whatever the project
-        calls for.
-      </p>
-      <p>
-        Replace this with two or three sentences about your program, your
-        year, and what kind of engineering role or internship you're
-        looking for next. This is the first thing an employer reads, so
-        keep it specific rather than generic.
-      </p>
-    </section>
-  </main>
+</div></section>
 
-  <footer class="footer">
-    <p>Built with HTML &amp; CSS, hosted on GitHub Pages.</p>
-  </footer>
+<section id="about"><div class="wrap">
+<h2 class="rv">About</h2>
+<div class="about">
+<div class="bio rv"><img class="photo" src="photo.png" alt="Nolan Wong">
+<p>Hello! I am a student at University of California, Berkeley. I am majoring in mechanical engineering student with an aerospace concentration. Welcome to my portfolio!</p>
+<p>I became fascinated with aerospace engineering when a Boeing 747 flew over my head. I couldn’t understand how something so massive could stay in the air and that curiosity drives me to learn more about the physics and engineering behind aircraft. 
+    Today I’m building on that curiosity by being a part of the landing gear design team on Cal Aero SAE where I design and CAD a modular landing gear test rig to analyze various loads on a landing gear. 
+    I hope to work and gain experience in the aerospace industry as I learn the theory behind aircrafts.</p></div>
+<div><h3 class="rv">Places I’ve traveled</h3>
+<ol class="tl" id="tl"><div class="tline"></div>
+<li class="rv"><b>Italy</b><span>Florence, Rome, Venice</span></li>
+<li class="rv"><b>France</b><span>Paris</span></li>
+<li class="rv"><b>Spain</b><span>Madrid, Sevilla, Cordoba, Granada</span></li>
+<li class="rv"><b>Japan</b><span>Tokyo, Kyoto, Osaka, Kobe</span></li>
+<li class="rv"><b>Korea</b><span>Seoul</span></li>
+<li class="rv"><b>Mexico</b><span>Cabo San Lucas, Tijuana</span></li>
+<li class="rv"><b>Next: China</b><span></span></li></ol></div>
+</div>
+<ul class="ints" aria-label="Interests">
+<li class="rv"><b>Hiking</b><span>Trails and long weekends outside.</span></li>
+<li class="rv"><b>Cooking</b><span>Mostly Mexican and Japanese at home.</span></li>
+<li class="rv"><b>Basketball</b><span>Pickup games and working out.</span></li>
+<li class="rv"><b>Indie music</b><span>Concerts and raves when I can.</span></li>
+<li class="rv"><b>Travel</b><span>Spain, France, Japan, Korea. South America is next.</span></li>
+<li class="rv"><b>Food videos</b><span>Research for the next thing I cook.</span></li>
+</ul>
+</div></section>
 
+<section id="projects"><div class="wrap">
+<h2 class="rv">Projects</h2>
+<p class="lead rv">CAD models, simulations, and things I built for fun.</p>
+<div class="filters rv" role="group" aria-label="Filter projects">
+<button aria-pressed="true" data-t="all">All</button><button aria-pressed="false" data-t="solidworks">SolidWorks</button><button aria-pressed="false" data-t="matlab">MATLAB</button><button aria-pressed="false" data-t="personal">Personal</button></div>
+<div class="grid" id="grid"></div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+<h2 class="rv">Let’s talk</h2>
+<p class="lead rv">Looking for aerospace internships and projects worth building. The fastest way to reach me is email.</p>
+<div class="links rv"><a class="btn p" href="mailto:you@example.com">you@example.com</a><a class="btn" href="#">LinkedIn</a><a class="btn" href="#">GitHub</a><a class="btn" href="#">Download resume</a></div>
+</div></section>
+</main>
+<footer><div class="wrap">© 2026 Nolan Wong</div></footer>
+
+<!-- Project detail view: opens when a project tile is clicked -->
+<dialog id="pd" aria-labelledby="pdT">
+<aside class="side">
+ <button class="back pd-s" type="button" id="pdBack"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Back to projects</button>
+ <h3 id="pdT" class="pd-s"></h3>
+ <p class="meta pd-s" id="pdMeta"></p>
+ <ol class="steps pd-s" id="pdSteps"></ol>
+ <p class="lab pd-s">Tools used</p>
+ <ul class="tools pd-s" id="pdTools"></ul>
+ <svg class="jet" viewBox="0 0 200 110" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="100" cy="58" r="12"/><path d="M6 66 88 58M112 58l82 8M6 71l82-6M112 65l82 6M100 14v32M84 24h32"/><circle cx="52" cy="72" r="10"/><circle cx="52" cy="72" r="4.5"/><circle cx="148" cy="72" r="10"/><circle cx="148" cy="72" r="4.5"/><path d="M92 96h16M100 70v26"/></svg>
+</aside>
+
+<section class="stage" id="pdStage" aria-label="Project visual">
+ <div class="pdhero"><div class="hz" id="pdZ"></div></div>
+ <div id="pdCo"></div>
+ <div class="vname pd-s" id="pdV"></div>
+ <div class="zc pd-s"><span id="pdZv">100%</span><button type="button" id="pdZo" aria-label="Zoom out">−</button><button type="button" id="pdZi" aria-label="Zoom in">+</button></div>
+</section>
+
+<div class="thumbs pd-s" id="pdThumbs" role="group" aria-label="Project views"></div>
+
+<section class="info">
+ <div id="pdBody" class="pd-s"></div>
+ <a class="rep pd-s" id="pdRep" href="#"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7zM14 3v4h4"/></svg>View full report</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg></a>
+</section>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/motion@11.18.2/dist/motion.js"></script>
+<script>
+(function(){
+var M=window.Motion,rm=matchMedia('(prefers-reduced-motion: reduce)').matches,go=!!M&&!rm;
+if(go)document.documentElement.classList.add('anim');
+var EZ=[.22,1,.36,1];
+
+/* ---------- Project data ----------
+   c   = tile color. The detail view's background is tinted from this same color.
+   im  = optional images, one per view: im:['images/cad.png','images/fea.png','images/data.png','images/drawing.png']
+   rep = optional link for the "View full report" button
+   Anything you leave out falls back to the placeholders in DEF below. */
+var DEF={
+ meta:'Mechanical Engineering | Aerospace',
+ tools:['SolidWorks'],
+ v:['CAD Model','Analysis','Results','Drawings'],
+ cad:'Placeholder: describe the model, its main parts, and the design choices behind them.',
+ an:'Placeholder: describe how you tested or analyzed it and the loads you applied.',
+ re:'Placeholder: add the key numbers, plots, and what they showed.',
+ tk:['Placeholder: what worked well.','Placeholder: what you would change next time.','Placeholder: what you learned.'],
+ co:[{e:5,a:38,y:27,t:'Key feature',d:'Placeholder: what this part does.'},{e:95,a:62,y:44,t:'Interface',d:'Placeholder: how it connects to the rest.'},{e:95,a:60,y:70,t:'Load path',d:'Placeholder: where the load goes.'}]
+};
+var P=[
+{t:'Landing gear for a miniature plane',k:'solidworks',tags:['SolidWorks','Team project'],c:'#3A7CA5',s:'Designed, fabricated, and integrated with the fuselage and avionics.',
+ v:['CAD Model','Load Cases','Fabrication','Drawings'],
+ ov:'Designed, fabricated, and integrated landing gear for a miniature plane with the Aerospace SAE Mechanical Structures team. The gear had to absorb touchdown loads, stay light, and fit around the fuselage and avionics.',
+ goal:'Light, reliable gear that survives repeated landings. Placeholder: add the target mass and landing load.',
+ con:['Landing load the gear must carry (placeholder)','Weight and size limits','Clearance around the fuselage and avionics','Materials and fabrication method'],
+ pr:[['Initial design','Sketched concepts and picked materials from the expected loads.'],['CAD model','Modeled the gear in SolidWorks and fit it to the fuselage.'],['Iteration','Adjusted the geometry to cut weight while keeping strength.'],['Fabrication','Built the gear and integrated it with the fuselage and avionics.']],
+ cad:'The gear was modeled in SolidWorks and fit to the fuselage and avionics. Placeholder: name the main parts, such as the strut, wheel mounts, and fuselage interface.',
+ an:'Placeholder: describe the landing loads you considered and how you checked the design against them.',
+ re:'Placeholder: add the final mass, the load it handles, and photos of the built gear.',
+ co:[{e:5,a:38,y:25,t:'Mounting points',d:'Attach the gear to the fuselage'},{e:95,a:62,y:43,t:'Strut',d:'Carries the touchdown load'},{e:95,a:60,y:70,t:'Wheel assembly',d:'Rolls on the runway and takes side loads'}]},
+{t:'Quadcopter frame analysis',k:'personal',tags:['Personal','Ansys','SolidWorks'],c:'#6B7A99',s:'Structural analysis to find where a quadcopter frame is over- or under-built.',
+ tools:['Ansys','SolidWorks'],v:['CAD Model','Stress Plot','Mesh','Drawings'],
+ ov:'Structural analysis of a quadcopter frame to find where it is over-built and where it is under-built before it flies.',
+ goal:'Find stress concentrations under flight loads and trim weight where the frame has margin to spare.',
+ con:['Flight loads on the arms and motor mounts (placeholder values)','Frame weight','Material and fabrication method'],
+ pr:[['Model','Built the frame in SolidWorks.'],['Setup','Applied flight loads and supports in Ansys.'],['Analysis','Ran structural simulations and read the stress plots.'],['Iteration','Changed the geometry where stress was too high or too low.']],
+ cad:'Placeholder: describe the frame layout, arm design, and motor mounts.',
+ an:'Placeholder: describe the mesh, loads, and supports used in Ansys.',
+ re:'Placeholder: add peak stress, safety factor, and the stress plot.'},
+{t:'Airfryer assembly',k:'solidworks',tags:['SolidWorks'],c:'#3A7CA5',s:'A full multi-part CAD assembly of a household appliance.',
+ v:['Assembly','Exploded View','Parts List','Drawings'],
+ ov:'A full multi-part CAD assembly of a household appliance, with every part mated so it fits and moves correctly.',
+ goal:'Model each part and assemble them with correct mates and clearances.',
+ con:['Parts must fit without interference','Mates must match how the parts really move','The exploded view must be easy to read'],
+ pr:[['Part modeling','Built each part as its own SolidWorks model.'],['Assembly','Mated the parts into one assembly.'],['Check','Checked fits and clearances.'],['Presentation','Made renders and an exploded view.']]},
+{t:'Heat distribution in a plate',k:'matlab',tags:['MATLAB','Numerical methods'],c:'#2A9D8F',s:'Numerical model of how heat spreads across a metal plate.',
+ tools:['MATLAB'],v:['Heat Map','Code','Convergence','Notes'],
+ ov:'A numerical model, written in MATLAB, of how heat spreads across a metal plate over time.',
+ goal:'Predict the temperature field across the plate over time.',
+ con:['Boundary conditions on each edge','Grid resolution versus run time','Numerical stability'],
+ pr:[['Set up','Defined the plate, boundaries, and material properties.'],['Discretize','Split the plate into a grid and wrote the update equations.'],['Solve','Ran the solver in MATLAB until the field settled.'],['Check','Compared the result with expected behavior.']]},
+{t:'MATLAB project placeholder',k:'matlab',tags:['MATLAB'],c:'#2A9D8F',s:'A second code project: trajectories, controls, or data analysis.',
+ tools:['MATLAB'],v:['Output','Code','Results','Notes'],
+ ov:'Placeholder: describe the problem this project solves.',
+ goal:'Placeholder: what the code needed to do.',
+ con:['Placeholder constraint','Placeholder constraint'],
+ pr:[['Problem','Describe the problem.'],['Method','Describe your method.'],['Code','Describe how you built it.'],['Result','Describe the result and link the code.']]},
+{t:'Personal project placeholder',k:'personal',tags:['Personal','Build'],c:'#6B7A99',s:'Something you made for yourself, like a cooking tool or a hiking gadget.',
+ v:['Build','Parts','Testing','Notes'],
+ ov:'Placeholder: why you started this and what it is.',
+ goal:'Placeholder: what you wanted it to do.',
+ con:['Placeholder constraint','Placeholder constraint'],
+ pr:[['Idea','Why you started it.'],['Build','How you built it.'],['Test','How you tested it.'],['Learn','What you learned.']]}];
+function g(p,k){return p[k]!==undefined?p[k]:DEF[k]}
+
+var grid=document.getElementById('grid');
+grid.innerHTML=P.map(function(p,i){return '<article class="card rv" data-k="'+p.k+'" data-t="'+p.tags.join(',').toLowerCase()+'" data-i="'+i+'"><div class="th" style="--c:'+p.c+'"><span>Placeholder image</span></div><div class="cb"><ul class="tags">'+p.tags.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul><h3>'+p.t+'</h3><p>'+p.s+'</p><button class="more">View write-up <i>→</i></button></div></article>'}).join('');
+
+/* ---------- Project detail view ---------- */
+var dlg=document.getElementById('pd'),$=function(id){return document.getElementById(id)};
+var STEPS=['Overview','CAD Model','Analysis','Results','Takeaways'];
+var STEPVIEW=[0,0,1,2,null];
+var ICON={
+ target:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>',
+ sliders:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 7h9M19 7h1M4 17h1M11 17h9"/><circle cx="16" cy="7" r="2.4"/><circle cx="8" cy="17" r="2.4"/></svg>'
+};
+var cur=0,step=0,view=0,zoom=1,org={x:0,y:0};
+
+function drawStatic(){
+ var p=P[cur];
+ dlg.style.setProperty('--c',p.c);
+ $('pdT').textContent=p.t;
+ $('pdMeta').textContent=g(p,'meta');
+ $('pdTools').innerHTML=g(p,'tools').map(function(x){return '<li><i>'+x.charAt(0)+'</i>'+x+'</li>'}).join('');
+ $('pdThumbs').innerHTML=g(p,'v').map(function(n,i){var im=p.im&&p.im[i];return '<button type="button" class="tb" data-v="'+i+'"><span class="tp"'+(im?' style="background-image:url('+im+')"':'')+'></span><span class="tl2"><span>'+n+'</span><i>→</i></span></button>'}).join('');
+ $('pdCo').innerHTML=g(p,'co').map(function(c){var L=c.e<c.a;return '<div class="co '+(L?'L':'R')+'" style="left:'+(L?c.e:c.a)+'%;width:'+Math.abs(c.a-c.e)+'%;top:'+c.y+'%"><div class="tx"><b>'+c.t+'</b>'+c.d+'</div></div>'}).join('');
+ $('pdRep').setAttribute('href',p.rep||'#');
+}
+function drawSteps(){
+ $('pdSteps').innerHTML=STEPS.map(function(s,i){return '<li><button type="button" data-s="'+i+'"'+(i===step?' aria-current="step"':'')+'><span class="n">'+(i+1)+'</span>'+s+'</button></li>'}).join('');
+}
+function drawView(){
+ var p=P[cur],name=g(p,'v')[view],im=p.im&&p.im[view];
+ $('pdZ').innerHTML=im?'<img src="'+im+'" alt="'+p.t+': '+name+'">':'<div class="ph3"><b>'+name+'</b><span>Placeholder. Add an image path to this project’s im list.</span></div>';
+ $('pdV').textContent=name;
+ $('pdStage').classList.toggle('nov',view!==0);
+ $('pdThumbs').querySelectorAll('.tb').forEach(function(b,i){b.classList.toggle('on',i===view)});
+}
+function drawBody(){
+ var p=P[cur],h='';
+ if(step===0){
+  h='<p class="lab">Project overview</p><p>'+p.ov+'</p>'+
+   '<div class="blk"><span class="ic">'+ICON.target+'</span><div><h4>Goal</h4><p>'+p.goal+'</p></div></div>'+
+   '<div class="blk"><span class="ic">'+ICON.sliders+'</span><div><h4>Key constraints</h4><ul>'+p.con.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div></div>'+
+   '<p class="lab u">Design process</p><ol class="proc">'+p.pr.map(function(x,i){return '<li><span class="n">'+(i+1)+'</span><div><b>'+x[0]+'</b><p>'+x[1]+'</p></div></li>'}).join('')+'</ol>';
+ }else if(step===4){
+  h='<p class="lab">Takeaways</p><ul class="tkl">'+g(p,'tk').map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>';
+ }else{
+  h='<p class="lab">'+STEPS[step]+'</p><p>'+g(p,['','cad','an','re'][step])+'</p>';
+ }
+ $('pdBody').innerHTML=h;
+}
+function applyZoom(){$('pdZ').style.transform='scale('+zoom+')';$('pdZv').textContent=Math.round(zoom*100)+'%'}
+
+function openP(i,card){
+ var r=card.getBoundingClientRect();
+ cur=i;step=0;view=0;zoom=1;org={x:r.left+r.width/2,y:r.top+r.height/2};
+ drawStatic();drawSteps();drawView();drawBody();applyZoom();
+ if(go)dlg.querySelectorAll('.pd-s').forEach(function(e){e.style.opacity=0});
+ document.documentElement.classList.add('lock');
+ dlg.showModal();
+ if(go){
+  var R=Math.hypot(innerWidth,innerHeight),o=org.x+'px '+org.y+'px';
+  M.animate(dlg,{clipPath:['circle(0px at '+o+')','circle('+R+'px at '+o+')']},{duration:.75,ease:EZ});
+  M.animate('#pd .pd-s',{opacity:[0,1],y:[16,0]},{duration:.6,delay:M.stagger(.06,{startDelay:.3}),ease:EZ});
+ }
+}
+function closeP(){
+ if(!go){dlg.close();return}
+ var R=Math.hypot(innerWidth,innerHeight),o=org.x+'px '+org.y+'px';
+ M.animate(dlg,{clipPath:['circle('+R+'px at '+o+')','circle(0px at '+o+')']},{duration:.5,ease:EZ});
+ setTimeout(function(){dlg.close()},480);
+}
+dlg.addEventListener('close',function(){document.documentElement.classList.remove('lock')});
+grid.addEventListener('click',function(e){var c=e.target.closest('.card');if(c)openP(+c.dataset.i,c)});
+$('pdBack').onclick=closeP;
+$('pdSteps').addEventListener('click',function(e){
+ var b=e.target.closest('button');if(!b)return;
+ step=+b.dataset.s;if(STEPVIEW[step]!==null)view=STEPVIEW[step];
+ drawSteps();drawView();drawBody();
+ if(go){M.animate('#pdBody',{opacity:[0,1],y:[10,0]},{duration:.4,ease:EZ});M.animate('#pdZ',{opacity:[.2,1]},{duration:.4})}
+});
+$('pdThumbs').addEventListener('click',function(e){
+ var b=e.target.closest('.tb');if(!b)return;
+ view=+b.dataset.v;drawView();
+ if(go)M.animate('#pdZ',{opacity:[.2,1]},{duration:.4});
+});
+$('pdZi').onclick=function(){zoom=Math.min(1.6,+(zoom+.2).toFixed(1));applyZoom()};
+$('pdZo').onclick=function(){zoom=Math.max(.8,+(zoom-.2).toFixed(1));applyZoom()};
+$('pdRep').addEventListener('click',function(e){if(this.getAttribute('href')==='#')e.preventDefault()});
+
+function filt(t){var n=0;grid.querySelectorAll('.card').forEach(function(c){var show=!t||c.dataset.k===t;c.hidden=!show;if(show){c.style.opacity=1;if(go)M.animate(c,{opacity:[0,1],y:[14,0]},{duration:.5,delay:(n++)*.06,ease:[.22,1,.36,1]})}})}
+document.querySelectorAll('.filters button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.filters button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});filt(b.dataset.t==='all'?null:b.dataset.t)}});
+
+if(go){
+var E=[.22,1,.36,1];
+M.animate('.hi',{opacity:[0,1],y:[18,0]},{duration:.8,delay:M.stagger(.12),ease:E});
+
+M.inView('.rv',function(a){var el=a.target||a,i=Array.prototype.indexOf.call(el.parentNode.children,el)%4;M.animate(el,{opacity:[0,1],y:[18,0]},{duration:.7,delay:i*.07,ease:E})},{margin:'0px 0px -8% 0px'});
+M.scroll(M.animate('#bar',{scaleX:[0,1]},{ease:'linear'}));
+M.scroll(M.animate('.tline',{scaleY:[0,1]},{ease:'linear'}),{target:document.getElementById('tl'),offset:['start 75%','end 65%']});
+}
+var th=document.getElementById('th'),root=document.documentElement;
+function cur2(){return root.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}
+function lab(){th.textContent=cur2()==='dark'?'Light':'Dark'}
+th.onclick=function(){root.dataset.theme=cur2()==='dark'?'light':'dark';lab()};lab();
+var links=document.querySelectorAll('nav a.l'),io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){if(a.getAttribute('href')==='#'+e.target.id)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')})}})},{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('section[id]').forEach(function(s){io.observe(s)});
+})();
+</script>
 </body>
 </html>
