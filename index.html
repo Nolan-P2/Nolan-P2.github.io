@@ -1692,7 +1692,8 @@ var P=[
  con:['Boundary conditions on each edge','Grid resolution versus run time','Numerical stability'],
  pr:[['Set up','Defined the plate, boundaries, and material properties.'],['Discretize','Split the plate into a grid and wrote the update equations.'],['Solve','Ran the solver in MATLAB until the field settled.'],['Check','Compared the result with expected behavior.']]},
 // ---------- PROJECT 5: MATLAB project placeholder ----------
-{t:'MATLAB project placeholder',k:'matlab',tags:['MATLAB'],c:'#2A9D8F',s:'A second code project: trajectories, controls, or data analysis.',
+{t:'MATLAB project placeholder',k:'matlab',tags:['MATLAB'],c:'#2A9D8F',
+ ti: 'thermal_plate_tile.png',s:'A second code project: trajectories, controls, or data analysis.',
  tools:['MATLAB'],v:['Output','Code','Results','Notes'],
  ov:'Placeholder: describe the problem this project solves.',
  goal:'Placeholder: what the code needed to do.',
@@ -1714,7 +1715,7 @@ function g(p,k){return p[k]!==undefined?p[k]:DEF[k]}
    Tile HTML is in the grid.innerHTML line. Tile styling is CSS section 10.
    ====================================================================== */
 var grid=document.getElementById('grid');
-grid.innerHTML=P.map(function(p,i){return '<article class="card rv" data-k="'+p.k+'" data-t="'+p.tags.join(',').toLowerCase()+'" data-i="'+i+'"><div class="th" style="--c:'+p.c+'"><span>Placeholder image</span></div><div class="cb"><ul class="tags">'+p.tags.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul><h3>'+p.t+'</h3><p>'+p.s+'</p><button class="more">View write-up <i>→</i></button></div></article>'}).join('');
+grid.innerHTML=P.map(function(p,i){return '<article class="card rv" data-k="'+p.k+'" data-t="'+p.tags.join(',').toLowerCase()+'" data-i="'+i+'"><div class="th" style="--c:'+p.c+'">'+((p.ti||(p.im&&p.im[0]))?'<img src="'+(p.ti||p.im[0])+'" alt="'+p.t+'" loading="lazy">':'')+'</div><div class="cb"><ul class="tags">'+p.tags.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul><h3>'+p.t+'</h3><p>'+p.s+'</p><button class="more">View write-up <i>→</i></button></div></article>'}).join('');
 
 /* ======================================================================
    4. PROJECT DETAIL VIEW
